@@ -1,0 +1,92 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #89CFF0;
+    height: 200px;
+    border-top:3px solid #BBBBBB;
+    border-bottom:3px solid #BBBBBB;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-items: center;
+
+  }
+  
+  .flex-container > #header {
+    background-color: #89CFF0;
+    width: 400px;
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 75px;
+    font-size: 50px;
+    color: green;
+  }
+  .flex-container > #first img{
+    background-color: #89CFF0;
+    margin: 10px;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 75px;
+    width: 120px;
+    height: 200px;
+  }
+  .flex-container > #third img{
+    background-color: #89CFF0;
+    margin: 10px;
+    text-align: right;
+    vertical-align: middle;
+    line-height: 75px;
+    width: 120px;
+    height: 200px;
+}
+
+
+.transaction {
+    margin-top: 220px;
+    padding: 16px;
+    color:black;
+    margin-bottom: 20px;
+  }
+
+#transaction-type {
+	margin-top: 20px;
+}
+
+#amount {
+	margin-top: 20px;
+}
+
+#repeated {
+	margin-top: 20px;
+}
+
+#notes {
+	padding-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: 20px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+th {
+  text-align: left;
+  background-color: lightgrey;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
