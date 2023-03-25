@@ -90,3 +90,26 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+.graphs {
+  margin-top: 220px;
+  padding: 16px;
+  color:black;
+  margin-bottom: 20px;
+}
+
+#graph-title {
+  font-size: larger;
+  font-weight: bold;
+}
+
+#each-image {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+#g-img {
+  border: black;
+  border-style: solid;
+}
