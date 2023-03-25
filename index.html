@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -8,11 +10,84 @@
 	</head>
 	
 	<body>
-		<div class="flex-container">
+		<!-- <div class="flex-container">
+    <div id= "first"><img src="./images/2020/award/money-icon.png" class="flex-container.first" alt="Money Icon"/></div>
+    <div id= "header"><strong>Cash U Later</strong></div>
+    <div id= "third"><img src="./images/2020/award/money-icon.png" class="flex-container.third" alt="Money Icon"/></div>
+  </div> -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <!-- make bigger next time -->
+        <img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+            Transaction
+        </a>
+        <a class="navbar-item">
+            Projected Spending Calculator
+        </a>
+        <a class="navbar-item">
+            Spending Graphs
+        </a>
+        <a class="navbar-item">
+            Virtual Piggy Bank
+        </a>
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Menu
+          </a> -->
+  
+          <!-- <div class="navbar-dropdown"> -->
+            <!-- <a class="navbar-item">
+                Transaction
+            </a>
+            <a class="navbar-item">
+                Projected Spending Calculator
+            </a>
+            <a class="navbar-item">
+                Spending Graphs
+            </a>
+            <a class="navbar-item">
+                Virtual Piggy Bank
+            </a> -->
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-success">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+		<!-- <div class="flex-container">
 			<div id= "first"><img src="./images/2020/award/money-icon.png" class="flex-container.first" alt="Money Icon"/></div>
 			<div id= "header"><strong>Cash U Later</strong></div>
 			<div id= "third"><img src="./images/2020/award/money-icon.png" class="flex-container.third" alt="Money Icon"/></div>
-		  </div>
+		  </div> -->
 		<div class="transaction">
 		<h1>Welcome, Person1!</h1>
 		<form>
@@ -64,6 +139,30 @@
 			<td>Coffee</td>
 		  </tr>
 		</table>
+
+		<table id="recent-expenses">
+			<h3>Recent Expenses</h3>
+			<tr>
+			  <th>Type</th>
+			  <th>Amount</th>
+			  <th>Notes</th>
+			</tr>
+			<tr>
+			  <td>Wants</td>
+			  <td>$5.00</td>
+			  <td>Salary</td>
+			</tr>
+			<tr>
+			  <td>Needs</td>
+			  <td>$3.50</td>
+			  <td>Groceries</td>
+			</tr>
+			<tr>
+			  <td>Wants</td>
+			  <td>$7.00</td>
+			  <td>Coffee</td>
+			</tr>
+		  </table>
 
 		<div class="graphs">
 			<h1>Graphs for Mar 2023</h1>
