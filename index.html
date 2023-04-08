@@ -2,215 +2,264 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="style.css" type='text/css'>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-			
-	</head>
-	
-	<body>
-		<!-- <div class="flex-container">
-    <div id= "first"><img src="./images/2020/award/money-icon.png" class="flex-container.first" alt="Money Icon"/></div>
-    <div id= "header"><strong>Cash U Later</strong></div>
-    <div id= "third"><img src="./images/2020/award/money-icon.png" class="flex-container.third" alt="Money Icon"/></div>
-  </div> -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item">
-        <!-- make bigger next time -->
-        <img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
-      </a>
-  
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item">
-            Transaction
-        </a>
-        <a class="navbar-item">
-            Projected Spending Calculator
-        </a>
-        <a class="navbar-item">
-            Spending Graphs
-        </a>
-        <a class="navbar-item">
-            Virtual Piggy Bank
-        </a>
-        <!-- <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Menu
-          </a> -->
-  
-          <!-- <div class="navbar-dropdown"> -->
-            <!-- <a class="navbar-item">
-                Transaction
-            </a>
-            <a class="navbar-item">
-                Projected Spending Calculator
-            </a>
-            <a class="navbar-item">
-                Spending Graphs
-            </a>
-            <a class="navbar-item">
-                Virtual Piggy Bank
-            </a> -->
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-success">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+	<div class="has-navbar-fixed-top">
+  	<div class="navbar-brand">
+    	<a class="navbar-item">
+      	<!-- make bigger next time -->
+      	<img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
+    	</a>
+
+    	<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      	<span aria-hidden="true"></span>
+      	<span aria-hidden="true"></span>
+      	<span aria-hidden="true"></span>
+    	</a>
+  	</div>
+
+  	<div id="navbarBasicExample" class="navbar-menu">
+    	<div class="navbar-start">
+      	<a class="navbar-item">
+        	Transaction
+      	</a>
+      	<a class="navbar-item">
+        	Projected Spending Calculator
+      	</a>
+      	<a class="navbar-item">
+        	Spending Graphs
+      	</a>
+      	<a class="navbar-item">
+        	Virtual Piggy Bank
+      	</a>
+      	<!-- <div class="navbar-item has-dropdown is-hoverable">
+      	<a class="navbar-link">
+        	Menu
+      	</a> -->
+
+      	<!-- <div class="navbar-dropdown"> -->
+      	<!-- <a class="navbar-item">
+            	Transaction
+        	</a>
+        	<a class="navbar-item">
+            	Projected Spending Calculator
+        	</a>
+        	<a class="navbar-item">
+            	Spending Graphs
+        	</a>
+        	<a class="navbar-item">
+            	Virtual Piggy Bank
+        	</a> -->
+      	<hr class="navbar-divider">
+      	<a class="navbar-item">
+        	Report an issue
+      	</a>
+    	</div>
+  	</div>
+	</div>
+
+	<div class="navbar-end">
+  	<div class="navbar-item">
+    	<div class="buttons">
+      	<a class="button is-success" id="signupButton">
+        	<strong>Sign up</strong>
+      	</a>
+      	<a class="button is-light" id="loginButton">
+        	Log in
+      	</a>
+    	</div>
+  	</div>
+	</div>
+	</div>
+	</div>
   </nav>
-		<!-- <div class="flex-container">
-			<div id= "first"><img src="./images/2020/award/money-icon.png" class="flex-container.first" alt="Money Icon"/></div>
-			<div id= "header"><strong>Cash U Later</strong></div>
-			<div id= "third"><img src="./images/2020/award/money-icon.png" class="flex-container.third" alt="Money Icon"/></div>
-		  </div> -->
-		<div class="transaction">
-		<h1>Welcome, Person1!</h1>
-		<form>
-		  <div id="transaction-type"><strong>Transaction Type:</strong>
-		  <select id="transaction-type" name="transaction-type">
-			<option value="deposit">Deposit</option>
-			<option value="expense">Expense</option>
-		  </select></div>
-		  <div id="transaction-type"><strong>Expense Type:</strong>
-		  <select id="transaction-type" name="transaction-type">
-			<option value="deposit">Needs</option>
-			<option value="expense">Wants</option>
-		  </select></div>
-		  <div id="amount"><strong>Amount: $</strong>
-		  <input type="number" id="amount" name="amount" min="0" step="0.01">
-		  </div>
-		  <div id="repeated"><strong>Repeated?</strong>
-		  <input type="checkbox" id="repeated" name="repeated">
-		  </div>
-		  <div id="notes"><strong>Notes:</strong></div>
-		  <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
-		  <input type="submit" value="Submit">
-		  
-		</form>
-		</div>
-		<table>
-		  <tr>
-			<th>Transaction Type</th>
-			<th>Amount</th>
-			<th>Repeated?</th>
-			<th>Notes</th>
-		  </tr>
-		  <tr>
-			<td>Deposit</td>
-			<td>$100.00</td>
-			<td>No</td>
-			<td>Salary</td>
-		  </tr>
-		  <tr>
-			<td>Expense</td>
-			<td>$50.00</td>
-			<td>Yes</td>
-			<td>Groceries</td>
-		  </tr>
-		  <tr>
-			<td>Expense</td>
-			<td>$20.00</td>
-			<td>No</td>
-			<td>Coffee</td>
-		  </tr>
-		</table>
+  <!-- Welcome section-->
+  <section class="section">
+  <h1 class="title">Welcome {*User Name Here*},</h1>
+  <h2 class="subtitle">
+	*their profile image from firebase here*
+  </h2>
+</section>
+  <!-- Form container-->
+  <section class="section">
+	<h1 class="title">Add Transaction</h1>
+	<h2 class="subtitle">
+  	Fill out the fields below to track a spending or income
+	</h2>
+	<div class="container">
+	<div class="box">
+  	<label class="label">Transaction Type</label>
+  	<div class="select">
+    	<select id="transaction-type1">
+      	<option>Income</option>
+      	<option>Spending</option>
+    	</select>
+  	</div>
+  	<label class="label">Expense Type</label>
+  	<div class="select" id="expenseType">
+    	<select id="expense-type">
+      	<option>Wants</option>
+      	<option>Needs</option>
+    	</select>
+  	</div>
+  	<label class="label">Transaction Amount</label>
+  	<input class="input" type="text" placeholder="0.00" id="amount">
+  	<label class="label">Is this a recurring Transaction?</label>
+  	<label class="checkbox" id="checkRepeat">
+    	<input type="checkbox" id = "repeatCheckbox" onclick="toggleSelect()">
+    	Recurring?
+  	</label>
+  	<div class="select" id="repeated">
+    	<select>
+      	<option>Daily </option>
+      	<option>Weekly</option>
+      	<option>BiWeekly</option>
+      	<option>Monthly</option>
+      	<option>Anually</option>
+    	</select>
+  	</div>
+  	<label class="label">Notes:</label>
+  	<textarea class="textarea" placeholder="Optional extra information" id="notes"></textarea>
+  	<button class="button" onclick="addData()">Submit</button>
+	</div>
+  </div>
+  </section>
+ 
 
-		<table id="recent-expenses">
-			<h3>Recent Expenses</h3>
-			<tr>
-			  <th>Type</th>
-			  <th>Amount</th>
-			  <th>Notes</th>
-			</tr>
-			<tr>
-			  <td>Wants</td>
-			  <td>$5.00</td>
-			  <td>Salary</td>
-			</tr>
-			<tr>
-			  <td>Needs</td>
-			  <td>$3.50</td>
-			  <td>Groceries</td>
-			</tr>
-			<tr>
-			  <td>Wants</td>
-			  <td>$7.00</td>
-			  <td>Coffee</td>
-			</tr>
-		  </table>
+  <table>
+	<tr>
+  	<th>Transaction Type</th>
+  	<th>Amount</th>
+  	<th>Repeated?</th>
+  	<th>Notes</th>
+	</tr>
+	<tbody id="rows" >
+  	<tr id="example">
+    	<td>Deposit</td>
+    	<td>$100.00</td>
+    	<td>No</td>
+    	<td>Salary</td>
+  	</tr>
+	</tbody>
 
-		<div class="graphs">
-			<h1>Graphs for Mar 2023</h1>
-			<p>
-				Today's Date: March 25 2023
-			</p>
-			<strong>Select Month:</strong>
-				<select id="graph-type" name="graph-type">
-				  <option>Jan</option>
-				  <option>Feb</option>
-				  <option>Mar</option>
-				  <option>Apr</option>
-				  <option>May</option>
-				  <option>Jun</option>
-				  <option>Jul</option>
-				  <option>Aug</option>
-				  <option>Sep</option>
-				  <option>Oct</option>
-				  <option>Nov</option>
-				  <option>Dec</option>
-				</select>
+	<!-- 	<tr>
+  	<class id="second">
+    	<td>Expense</td>
+    	<td>$50.00</td>
+    	<td>Yes</td>
+    	<td>Groceries</td>
+  	</class>
+	</tr>
+	<tr>
+  	<class id="third">
+    	<td>Expense</td>
+    	<td>$20.00</td>
+    	<td>No</td>
+    	<td>Coffee</td>
+  	</class>
+	</tr> -->
+  </table>
 
-			<div id="graph-images">
-				<div id="each-image">
-					<p id="graph-title">
-						Available Amount this month
-					</p>
-					<img id="g-img" src="images/graphs/Page1.png" alt="categories", width="650px">
-				</div>
+  <table id="recent-expenses">
+	<h3>Recent Expenses</h3>
+	<tr>
+  	<th>Type</th>
+  	<th>Amount</th>
+  	<th>Notes</th>
+	</tr>
+	<tr>
+  	<td>Wants</td>
+  	<td>$5.00</td>
+  	<td>Salary</td>
+	</tr>
+	<tr>
+  	<td>Needs</td>
+  	<td>$3.50</td>
+  	<td>Groceries</td>
+	</tr>
+	<tr>
+  	<td>Wants</td>
+  	<td>$7.00</td>
+  	<td>Coffee</td>
+	</tr>
+  </table>
 
-				<div id="each-image">
-					<p id="graph-title">
-						Total Percent of Budge spent this month
-					</p>
-					<img id="g-img" src="images/graphs/Page2.png" alt="categories", width="650px">	
-				</div>
+ 
+  <!-- Graphs Section -->
+  <section class="section">
+  <h1 class="title">Graphs</h1>
+  <h2 class="subtitle">
+	Visualize Your Spending
+  </h2>
+  	<div class="graphs">
+	<p>
+  	Today's Date: March 25 2023
+	</p>
+	<label class="label">Select Month:</label>
+    
+	<select id="graph-type" name="graph-type">
+  	<option>Jan</option>
+  	<option>Feb</option>
+  	<option>Mar</option>
+  	<option>Apr</option>
+  	<option>May</option>
+  	<option>Jun</option>
+  	<option>Jul</option>
+  	<option>Aug</option>
+  	<option>Sep</option>
+  	<option>Oct</option>
+  	<option>Nov</option>
+  	<option>Dec</option>
+	</select>
+    
+	<div class="tabs">
+  	<ul>
+    	<li class="is-active" onclick="openTab(event, 'tab1')"><a>Graph 1</a></li>
+    	<li onclick="openTab(event, 'tab2')"><a>Graph 2</a></li>
+    	<li onclick="openTab(event, 'tab3')"><a>Graph 3</a></li>
+  	</ul>
+	</div>
+	<div id="tab1" class="tab-content">
+  	<div id="graph1">
+    	<p id="graph-title">
+      	Available Amount this month
+    	</p>
+    	<img src="images/graphs/Page1.png" alt="categories" width="650px">
+  	</div>
+	</div>
 
-				<div id="each-image">
-					<p id="graph-title">
-						Daily Percent of Budget spent this month
-					</p>
-					<img id="g-img" src="images/graphs/Page3.png" alt="categories", width="650px">
-				</div>
-			</div>
-			
+	<div id="tab2" class="tab-content" style="display:none">
+  	<div id="graph2">
+    	<p id="graph-title">
+      	Total Percent of Budge spent this month
+    	</p>
+    	<img src="images/graphs/Page2.png" alt="categories" width="650px">
+  	</div>
+	</div>
+
+	<div id="tab3" class="tab-content" style="display:none">
+  	<div id="graph3">
+    	<p id="graph-title">
+      	Daily Percent of Budget spent this month
+    	</p>
+    	<img src="images/graphs/Page3.png" alt="categories" width="650px">
+  	</div>
+	</div>
 
 
-		</div>
+  </div>
+</section>
 
-	</body>
+  <div id="inputFieldsContainer"></div>
+
+</body>
+
 </html>
