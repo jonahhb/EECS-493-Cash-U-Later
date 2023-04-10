@@ -11,6 +11,8 @@
 
 <body>
 	<script src="script.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js"></script>	
 	
 	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
 
@@ -71,7 +73,7 @@
 	<div class="navbar-end">
   	<div class="navbar-item">
     	<div class="buttons">
-      	<a class="button button is-success is-light" id="signupButton">
+      	<a class="button button is-success is-light" id="signupButton" onclick="signup_pop(event);"> 
         	<strong>Sign up</strong>
       	</a>
       	<a class="button is-light" id="loginButton">
@@ -216,8 +218,27 @@
   </div>
 </section>
 
-  <div id="inputFieldsContainer"></div>
-
+  
+<!-- Sign up modal -->
+<div id="signupModal" class="modal">
+	<div class="modal-background"></div>
+	<div class="modal-card">
+	  <header class="modal-card-head">
+		<p class="modal-card-title">Sign Up</p>
+		<button class="delete" aria-label="close" id="closeModal" onclick="closeSignupModal()"></button>
+	  </header>
+	  <section class="modal-card-body">
+		<!-- The input fields for email and password will be added here by JavaScript -->
+		<div id="inputFieldsContainer"></div>
+	  </section>
+	  <footer class="modal-card-foot">
+		<button class="button is-success" id="submitSignup" onclick="submitSignupHandler();">Submit</button>
+		<button class="button is-danger" id="cancelSignup" onclick="closeSignupModal()">Cancel</button>
+	  </footer>
+	</div>
+  </div>
+  
+  <script src="firebase-config.js"></script>
 </body>
 
 </html>
