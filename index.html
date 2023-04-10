@@ -7,11 +7,13 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css" type='text/css'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-  <script src="script.js"></script>
 </head>
 
 <body>
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+	<script src="script.js"></script>
+	
+	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+
 	<div class="has-navbar-fixed-top">
   	<div class="navbar-brand">
     	<a class="navbar-item">
@@ -60,7 +62,7 @@
         	</a> -->
       	<hr class="navbar-divider">
       	<a class="navbar-item">
-        	Report an issue
+        	Report An Issue
       	</a>
     	</div>
   	</div>
@@ -69,7 +71,7 @@
 	<div class="navbar-end">
   	<div class="navbar-item">
     	<div class="buttons">
-      	<a class="button is-success" id="signupButton">
+      	<a class="button button is-success is-light" id="signupButton">
         	<strong>Sign up</strong>
       	</a>
       	<a class="button is-light" id="loginButton">
@@ -80,13 +82,13 @@
 	</div>
 	</div>
 	</div>
-  </nav>
+	</nav>
   <!-- Welcome section-->
-  <section class="section">
-  <h1 class="title">Welcome {*User Name Here*},</h1>
-  <h2 class="subtitle">
+	<section class="section">
+	<h1 class="title">Welcome, {*User Name Here*}!</h1>
+	<h2 class="subtitle">
 	*their profile image from firebase here*
-  </h2>
+	</h2>
 </section>
   <!-- Form container-->
   <section class="section">
@@ -103,7 +105,7 @@
       	<option>Spending</option>
     	</select>
   	</div>
-  	<label class="label">Expense Type</label>
+  	<label class="label">Spending Type</label>
   	<div class="select" id="expenseType">
     	<select id="expense-type">
       	<option>Wants</option>
@@ -113,7 +115,7 @@
   	<label class="label">Transaction Amount</label>
   	<input class="input" type="text" placeholder="0.00" id="amount">
   	<label class="label">Is this a recurring Transaction?</label>
-  	<label class="checkbox" id="checkRepeat">
+  	<label class="checkbox">
     	<input type="checkbox" id = "repeatCheckbox" onclick="toggleSelect()">
     	Recurring?
   	</label>
@@ -128,71 +130,26 @@
   	</div>
   	<label class="label">Notes:</label>
   	<textarea class="textarea" placeholder="Optional extra information" id="notes"></textarea>
-  	<button class="button" onclick="addData()">Submit</button>
+  	<button class="button" onclick="addData();">Submit</button>
 	</div>
   </div>
   </section>
  
-
-  <table>
-	<tr>
-  	<th>Transaction Type</th>
-  	<th>Amount</th>
-  	<th>Repeated?</th>
-  	<th>Notes</th>
-	</tr>
-	<tbody id="rows" >
-  	<tr id="example">
-    	<td>Deposit</td>
-    	<td>$100.00</td>
-    	<td>No</td>
-    	<td>Salary</td>
-  	</tr>
+  <input type="text" id="myInput" onkeyup="filterFunc()" placeholder="Filter by Transaction Type..." title="Type in a name">
+  <table id="myTable">
+	<thead>
+		<tr>
+		<th>Transaction Type</th>
+		<th>Spending Type</th>
+		<th>Amount</th>
+		<th>Repeated?</th>
+		<th>Notes</th>
+		</tr>
+	</thead>
+	<tbody id="rows">
 	</tbody>
-
-	<!-- 	<tr>
-  	<class id="second">
-    	<td>Expense</td>
-    	<td>$50.00</td>
-    	<td>Yes</td>
-    	<td>Groceries</td>
-  	</class>
-	</tr>
-	<tr>
-  	<class id="third">
-    	<td>Expense</td>
-    	<td>$20.00</td>
-    	<td>No</td>
-    	<td>Coffee</td>
-  	</class>
-	</tr> -->
   </table>
 
-  <table id="recent-expenses">
-	<h3>Recent Expenses</h3>
-	<tr>
-  	<th>Type</th>
-  	<th>Amount</th>
-  	<th>Notes</th>
-	</tr>
-	<tr>
-  	<td>Wants</td>
-  	<td>$5.00</td>
-  	<td>Salary</td>
-	</tr>
-	<tr>
-  	<td>Needs</td>
-  	<td>$3.50</td>
-  	<td>Groceries</td>
-	</tr>
-	<tr>
-  	<td>Wants</td>
-  	<td>$7.00</td>
-  	<td>Coffee</td>
-	</tr>
-  </table>
-
- 
   <!-- Graphs Section -->
   <section class="section">
   <h1 class="title">Graphs</h1>
@@ -200,9 +157,10 @@
 	Visualize Your Spending
   </h2>
   	<div class="graphs">
-	<p>
-  	Today's Date: March 25 2023
-	</p>
+	<p><strong>Today's Date: </strong><script>
+		date = new Date().toLocaleDateString(); 
+		document.write(date);</script></p>
+	
 	<label class="label">Select Month:</label>
     
 	<select id="graph-type" name="graph-type">
