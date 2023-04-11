@@ -12,7 +12,10 @@ h1 {
   font-size: x-large;
   font-weight: bold;
 }
-
+iframe{
+  width:50vw;
+  height:40vw;
+}
 .transaction {
 	padding: 16px;
 	color:black;
