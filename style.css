@@ -121,31 +121,7 @@ h3 {
 }
 
 .navbar-item:hover {
-  color: #1E441E;
-}
-.navbar-item {
-  background-color: #2A7221;
-}
-
-#navbarBasicExample.navbar-menu.is-active {
-  background-color: #2A7221;
-}
-
-a.navbar-burger {
-  color: white;
-}
-
-/* Makes the links on the navbar scroll to the right spot*/
-.sectionAnchor {
-  position: relative;
-  padding-top: 100px;
-  margin-top: -100px;
-}
-
-#repeated{
-  display:none;
-  margin-top:0px;
-  /* margin-bottom:10px; */
+  color: green !important;
 }
 
 /* filter stuff */

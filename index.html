@@ -4,7 +4,6 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css" type='text/css'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
@@ -46,21 +45,6 @@
             Virtual Piggy Bank
           </a>
           <!-- <div class="navbar-item has-dropdown is-hoverable">
-  	<div id="navbarBasicExample" class="navbar-menu">
-    	<div class="navbar-start">
-      	<a class="navbar-item" href="#FORM">
-        	Transaction
-      	</a>
-      	<a class="navbar-item">
-        	Projected Spending Calculator
-      	</a>
-      	<a class="navbar-item" href="#GRAPHS">
-        	Spending Graphs
-      	</a>
-      	<a class="navbar-item">
-        	Virtual Piggy Bank
-      	</a>
-    	 <div class="navbar-item has-dropdown is-hoverable">
       	<a class="navbar-link">
         	Menu
       	</a> -->
@@ -109,7 +93,6 @@
     </h2>
   </section>
   <!-- Form container-->
-  <div id="FORM" class="sectionAnchor"></div>
   <section class="section">
     <h1 class="title">Add Transaction</h1>
     <h2 class="subtitle">
@@ -178,7 +161,6 @@
   </table>
 
   <!-- Graphs Section -->
-  <div id="GRAPHS" class="sectionAnchor"></div>
   <section class="section">
     <h1 class="title">Graphs</h1>
     <h2 class="subtitle">
@@ -270,28 +252,7 @@
       </footer>
     </div>
   </div>
-</section>
 
-  
-<!-- Sign up modal -->
-<div id="signupModal" class="modal">
-	<div class="modal-background"></div>
-	<div class="modal-card">
-	  <header class="modal-card-head">
-		<p class="modal-card-title">Sign Up</p>
-		<button class="delete" aria-label="close" id="closeModal" onclick="closeSignupModal()"></button>
-	  </header>
-	  <section class="modal-card-body">
-		<!-- The input fields for email and password will be added here by JavaScript -->
-		<div id="inputFieldsContainer"></div>
-	  </section>
-	  <footer class="modal-card-foot">
-		<button class="button is-success" id="submitSignup" onclick="submitSignupHandler();">Submit</button>
-		<button class="button is-danger" id="cancelSignup" onclick="closeSignupModal()">Cancel</button>
-	  </footer>
-	</div>
-  </div>
-  
   <script src="firebase-config.js"></script>
 </body>
 
