@@ -36,11 +36,21 @@ label {
   margin-top: 0px;
   margin-bottom: 10px;
 }
-
+#expenseType{
+  width:100px;
+}
 #repeated {
   margin-top: 20px;
 }
-
+#repeated{
+  display:none;
+  margin-top:0px;
+  margin-bottom:10px;
+  width:115px;
+}
+#addSelect{
+  width:115px;
+}
 #repeatCheckbox {
   margin-bottom: 15px;
 }
@@ -53,8 +63,7 @@ label {
 table {
   border-collapse: collapse;
   border: 1px solid black;
-  margin: 10px;
-  margin-left: 50px;
+  margin: auto;
 }
 
 th, td {
@@ -93,7 +102,7 @@ h3 {
 }
 
 .navbar {
-  background-color:  #2A7221;
+  background-color:  #388E3C;
 }
 
 #g-img {
@@ -112,13 +121,7 @@ h3 {
 }
 
 .navbar-item:hover {
-  color: #1E441E;
-}
-
-#repeated{
-  display:none;
-  margin-top:0px;
-  /* margin-bottom:10px; */
+  color: green !important;
 }
 
 /* filter stuff */
@@ -130,15 +133,15 @@ h3 {
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 93.5%;
+  width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
-  margin-left: 50px;
 }
 
 #myTable {
+  margin: auto;
   border-collapse: collapse;
   width: 93.5%;
   border: 1px solid #ddd;
@@ -146,14 +149,48 @@ h3 {
 }
 
 #myTable th, #myTable td {
+  margin: auto;
   text-align: left;
   padding: 12px;
 }
 
 #myTable tr {
+  margin: auto;
   border-bottom: 1px solid #ddd;
 }
 
 #myTable tr.header, #myTable tr:hover {
+  margin: auto;
   background-color: #f1f1f1;
+}
+
+.container {
+  position: relative;
+}
+
+.notification-message {
+  margin: 0 0 0 .5rem;
+  padding: .5rem 1rem;
+  background: black; 
+  color: white;
+  border-radius: .25rem;
+  position: absolute;
+  top: 0;
+  /* right: 100%; */
+  transform: translateX(50%);
+  display: none;
+}
+
+.notification-message.show {
+  display: block;
+}
+
+.box {
+  background-color: #AEDCAE;
+}
+
+.inputBox {
+  display: block;
+  margin: auto;
+  width: 93.5%;
 }

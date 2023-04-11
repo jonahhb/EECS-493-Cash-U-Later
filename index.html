@@ -10,45 +10,47 @@
 </head>
 
 <body>
-	<script src="script.js"></script>
-	
-	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <script src="script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js"></script>
 
-	<div class="has-navbar-fixed-top">
-  	<div class="navbar-brand">
-    	<a class="navbar-item">
-      	<!-- make bigger next time -->
-      	<img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
-    	</a>
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
 
-    	<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      	<span aria-hidden="true"></span>
-      	<span aria-hidden="true"></span>
-      	<span aria-hidden="true"></span>
-    	</a>
-  	</div>
+    <div class="has-navbar-fixed-top">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <!-- make bigger next time -->
+          <img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
+        </a>
 
-  	<div id="navbarBasicExample" class="navbar-menu">
-    	<div class="navbar-start">
-      	<a class="navbar-item">
-        	Transaction
-      	</a>
-      	<a class="navbar-item">
-        	Projected Spending Calculator
-      	</a>
-      	<a class="navbar-item">
-        	Spending Graphs
-      	</a>
-      	<a class="navbar-item">
-        	Virtual Piggy Bank
-      	</a>
-      	<!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Transaction
+          </a>
+          <a class="navbar-item">
+            Projected Spending Calculator
+          </a>
+          <a class="navbar-item">
+            Spending Graphs
+          </a>
+          <a class="navbar-item">
+            Virtual Piggy Bank
+          </a>
+          <!-- <div class="navbar-item has-dropdown is-hoverable">
       	<a class="navbar-link">
         	Menu
       	</a> -->
 
-      	<!-- <div class="navbar-dropdown"> -->
-      	<!-- <a class="navbar-item">
+          <!-- <div class="navbar-dropdown"> -->
+          <!-- <a class="navbar-item">
             	Transaction
         	</a>
         	<a class="navbar-item">
@@ -60,164 +62,198 @@
         	<a class="navbar-item">
             	Virtual Piggy Bank
         	</a> -->
-      	<hr class="navbar-divider">
-      	<a class="navbar-item">
-        	Report An Issue
-      	</a>
-    	</div>
-  	</div>
-	</div>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report An Issue
+          </a>
+        </div>
+      </div>
+    </div>
 
-	<div class="navbar-end">
-  	<div class="navbar-item">
-    	<div class="buttons">
-      	<a class="button button is-success is-light" id="signupButton">
-        	<strong>Sign up</strong>
-      	</a>
-      	<a class="button is-light" id="loginButton">
-        	Log in
-      	</a>
-    	</div>
-  	</div>
-	</div>
-	</div>
-	</div>
-	</nav>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button button is-success is-light" id="signupButton" onclick="signup_pop(event);">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light" id="loginButton">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </nav>
   <!-- Welcome section-->
-	<section class="section">
-	<h1 class="title">Welcome, {*User Name Here*}!</h1>
-	<h2 class="subtitle">
-	*their profile image from firebase here*
-	</h2>
-</section>
+  <section class="section">
+    <h1 class="title">Welcome, {*User Name Here*}!</h1>
+    <h2 class="subtitle">
+      *their profile image from firebase here*
+    </h2>
+  </section>
   <!-- Form container-->
   <section class="section">
-	<h1 class="title">Add Transaction</h1>
-	<h2 class="subtitle">
-  	Fill out the fields below to track a spending or income
-	</h2>
-	<div class="container">
-	<div class="box">
-  	<label class="label">Transaction Type</label>
-  	<div class="select">
-    	<select id="transaction-type1">
-      	<option>Income</option>
-      	<option>Spending</option>
-    	</select>
-  	</div>
-  	<label class="label">Spending Type</label>
-  	<div class="select" id="expenseType">
-    	<select id="expense-type">
-      	<option>Wants</option>
-      	<option>Needs</option>
-    	</select>
-  	</div>
-  	<label class="label">Transaction Amount</label>
-  	<input class="input" type="text" placeholder="0.00" id="amount">
-  	<label class="label">Is this a recurring Transaction?</label>
-  	<label class="checkbox">
-    	<input type="checkbox" id = "repeatCheckbox" onclick="toggleSelect()">
-    	Recurring?
-  	</label>
-  	<div class="select" id="repeated">
-    	<select>
-      	<option>Daily </option>
-      	<option>Weekly</option>
-      	<option>BiWeekly</option>
-      	<option>Monthly</option>
-      	<option>Anually</option>
-    	</select>
-  	</div>
-  	<label class="label">Notes:</label>
-  	<textarea class="textarea" placeholder="Optional extra information" id="notes"></textarea>
-  	<button class="button" onclick="addData();">Submit</button>
-	</div>
-  </div>
+    <h1 class="title">Add Transaction</h1>
+    <h2 class="subtitle">
+      Fill out the fields below to track a spending or income
+    </h2>
+    <div class="container">
+      <div class="box">
+        <label class="label">Transaction Type</label>
+        <div class="select">
+          <select id="transaction-type1" onchange="changeExpenseType()">
+            <!--             <option>Choose...</option> -->
+            <option>Spending</option>
+            <option>Income</option>
+          </select>
+        </div><br><br>
+        <label id="spendingLabel" class="label">Spending Type</label>
+        <div class="select" id="expenseType">
+          <select id="expense-type">
+            <option>Wants</option>
+            <option>Needs</option>
+          </select>
+        </div>
+        <label class="label">Transaction Amount</label>
+        <input class="input" type="text" placeholder="0.00" id="amount">
+        <label class="label">Is this a recurring Transaction?</label>
+        <label class="checkbox" id="checkRepeat">
+          <input type="checkbox" id="repeatCheckbox" onclick="toggleSelect()">
+          Recurring?
+        </label>
+        <div class="select" id="repeated">
+          <select id="addSelect">
+            <option>Daily </option>
+            <option>Weekly</option>
+            <option>BiWeekly</option>
+            <option>Monthly</option>
+            <option>Anually</option>
+          </select>
+        </div>
+        <div>
+          <label class="label">Notes:</label>
+          <textarea class="textarea" placeholder="Optional extra information" id="notes"></textarea>
+          <div class="container">
+      			<button class="button" onclick="someFunc()">Submit</button>
+      			<p class="notification-message">Entered Successfully!</p>
+  		    </div>
+      </div>
+    </div>
   </section>
- 
-  <input type="text" id="myInput" onkeyup="filterFunc()" placeholder="Filter by Transaction Type..." title="Type in a name">
+
+  <div class="inputBox">
+	<input type="text" id="myInput" onkeyup="filterFunc()" placeholder="Filter by Transaction Type..." title="Type in a name">
+  </div>
   <table id="myTable">
-	<thead>
-		<tr>
-		<th>Transaction Type</th>
-		<th>Spending Type</th>
-		<th>Amount</th>
-		<th>Repeated?</th>
-		<th>Notes</th>
-		</tr>
-	</thead>
-	<tbody id="rows">
-	</tbody>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Transaction Type</th>
+        <th>Spending Type</th>
+        <th>Amount</th>
+        <th>Repeated?</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="rows">
+    </tbody>
   </table>
 
   <!-- Graphs Section -->
   <section class="section">
-  <h1 class="title">Graphs</h1>
-  <h2 class="subtitle">
-	Visualize Your Spending
-  </h2>
-  	<div class="graphs">
-	<p><strong>Today's Date: </strong><script>
-		date = new Date().toLocaleDateString(); 
-		document.write(date);</script></p>
-	
-	<label class="label">Select Month:</label>
-    
-	<select id="graph-type" name="graph-type">
-  	<option>Jan</option>
-  	<option>Feb</option>
-  	<option>Mar</option>
-  	<option>Apr</option>
-  	<option>May</option>
-  	<option>Jun</option>
-  	<option>Jul</option>
-  	<option>Aug</option>
-  	<option>Sep</option>
-  	<option>Oct</option>
-  	<option>Nov</option>
-  	<option>Dec</option>
-	</select>
-    
-	<div class="tabs">
-  	<ul>
-    	<li class="is-active" onclick="openTab(event, 'tab1')"><a>Graph 1</a></li>
-    	<li onclick="openTab(event, 'tab2')"><a>Graph 2</a></li>
-    	<li onclick="openTab(event, 'tab3')"><a>Graph 3</a></li>
-  	</ul>
-	</div>
-	<div id="tab1" class="tab-content">
-  	<div id="graph1">
-    	<p id="graph-title">
-      	Available Amount this month
-    	</p>
-    	<img src="images/graphs/Page1.png" alt="categories" width="650px">
-  	</div>
-	</div>
+    <h1 class="title">Graphs</h1>
+    <h2 class="subtitle">
+      Visualize Your Spending
+    </h2>
+    <div class="graphs">
+      <p><strong>Today's Date: </strong>
+        <script>
+          date = new Date().toLocaleDateString();
+          document.write(date);</script>
+      </p>
 
-	<div id="tab2" class="tab-content" style="display:none">
-  	<div id="graph2">
-    	<p id="graph-title">
-      	Total Percent of Budge spent this month
-    	</p>
-    	<img src="images/graphs/Page2.png" alt="categories" width="650px">
-  	</div>
-	</div>
+      <label class="label">Select Month:</label>
+      <select id="graph-types" name="graph-type">
+        <option>Jan</option>
+        <option>Feb</option>
+        <option>Mar</option>
+        <option>Apr</option>
+        <option>May</option>
+        <option>Jun</option>
+        <option>Jul</option>
+        <option>Aug</option>
+        <option>Sep</option>
+        <option>Oct</option>
+        <option>Nov</option>
+        <option>Dec</option>
+      </select>
+      <script>
+        const today = new Date();
+        const currentMonth = today.getMonth();
+        var x = document.getElementById("graph-types").options;
+        document.getElementById("graph-types").value = x[currentMonth].text;
+      </script>
 
-	<div id="tab3" class="tab-content" style="display:none">
-  	<div id="graph3">
-    	<p id="graph-title">
-      	Daily Percent of Budget spent this month
-    	</p>
-    	<img src="images/graphs/Page3.png" alt="categories" width="650px">
-  	</div>
-	</div>
+      <div class="tabs">
+        <ul>
+          <li class="is-active" onclick="openTab(event, 'tab1')"><a>Graph 1</a></li>
+          <li onclick="openTab(event, 'tab2')"><a>Graph 2</a></li>
+          <li onclick="openTab(event, 'tab3')"><a>Graph 3</a></li>
+        </ul>
+      </div>
+      <div id="tab1" class="tab-content">
+        <div id="graph1">
+          <p id="graph-title">
+            Available Amount this month
+          </p>
+          <img src="images/graphs/Page1.png" alt="categories" width="650px">
+        </div>
+      </div>
+
+      <div id="tab2" class="tab-content" style="display:none">
+        <div id="graph2">
+          <p id="graph-title">
+            Total Percent of Budge spent this month
+          </p>
+          <img src="images/graphs/Page2.png" alt="categories" width="650px">
+        </div>
+      </div>
+
+      <div id="tab3" class="tab-content" style="display:none">
+        <div id="graph3">
+          <p id="graph-title">
+            Daily Percent of Budget spent this month
+          </p>
+          <img src="images/graphs/Page3.png" alt="categories" width="650px">
+        </div>
+      </div>
 
 
+    </div>
+  </section>
+
+
+  <!-- Sign up modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Sign Up</p>
+        <button class="delete" aria-label="close" id="closeModal" onclick="closeSignupModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- The input fields for email and password will be added here by JavaScript -->
+        <div id="inputFieldsContainer"></div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" id="submitSignup" onclick="submitSignupHandler();">Submit</button>
+        <button class="button is-danger" id="cancelSignup" onclick="closeSignupModal()">Cancel</button>
+      </footer>
+    </div>
   </div>
-</section>
 
-  <div id="inputFieldsContainer"></div>
-
+  <script src="firebase-config.js"></script>
 </body>
 
 </html>
