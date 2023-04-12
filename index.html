@@ -4,9 +4,11 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css" type='text/css'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,6 @@
     <div class="has-navbar-fixed-top">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <!-- make bigger next time -->
           <img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
         </a>
 
@@ -32,16 +33,16 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
-            Transaction
+          <a class="navbar-item" href="#FORM">
+            Transaction Form
           </a>
-          <a class="navbar-item">
-            Projected Spending Calculator
+          <a class="navbar-item" href="#TABLE">
+            Transaction Table
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href="#GRAPH">
             Spending Graphs
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href="#PIGGY">
             Virtual Piggy Bank
           </a>
           <!-- <div class="navbar-item has-dropdown is-hoverable">
@@ -63,7 +64,7 @@
             	Virtual Piggy Bank
         	</a> -->
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a class="navbar-item" href="#ISSUE">
             Report An Issue
           </a>
         </div>
@@ -86,6 +87,7 @@
     </div>
   </nav>
   <!-- Welcome section-->
+  <div id="WELCOME" class="sectionAnchor"></div>
   <section class="section">
     <h1 class="title">Welcome, {*User Name Here*}!</h1>
     <h2 class="subtitle">
@@ -93,6 +95,7 @@
     </h2>
   </section>
   <!-- Form container-->
+  <div id="FORM" class="sectionAnchor"></div>
   <section class="section">
     <h1 class="title">Transaction</h1>
     <h2 class="subtitle">
@@ -135,14 +138,21 @@
           <label class="label">Notes:</label>
           <textarea class="textarea" placeholder="Optional extra information" id="notes"></textarea>
           <div class="container">
-      			<button class="button" onclick="someFunc()">Submit</button>
+      			<button id="submitBut" class="button">Submit</button>
       			<p class="notification-message">Entered Successfully!</p>
   		    </div>
       </div>
     </div>
   </section>
 
+  <!-- Table Section -->
+  <div id="TABLE" class="sectionAnchor"></div>
+  <section class="section">
+    <h1 class="title">Transaction Table</h1>
   <div class="inputBox">
+    <p class="help">
+      Enter either "Spending" or "Income" to filter the table.
+    </p>
 	<input type="text" id="myInput" onkeyup="filterFunc()" placeholder="Filter by Transaction Type..." title="Type in a name">
   </div>
   <table id="myTable">
@@ -159,10 +169,11 @@
     <tbody id="rows">
     </tbody>
   </table>
-
+  </section>  
   <!-- Graphs Section -->
+  <div id="GRAPH" class="sectionAnchor"></div>
   <section class="section">
-    <h1 class="title">Graphs</h1>
+    <h1 class="title">Spending Graphs</h1>
     <h2 class="subtitle">
       Visualize Your Spending
     </h2>
@@ -234,6 +245,24 @@
     </div>
   </section>
 
+  <div id="PIGGY" class="sectionAnchor"></div>
+  <section class="section">
+    <h1 class="title">Virtual Piggy Bank</h1>
+    <h2 class="subtitle">
+      *To be implemented in for final version*
+    </h2>
+    <p>
+      This section will include a running total of extra money that was left unspent that the user will be able to use to save up for a big purchase.
+    </p>
+  </section>
+
+  <div id="ISSUE" class="sectionAnchor"></div>
+  <section class="section">
+    <h1 class="title">Report an Issue</h1>
+    <h2 class="subtitle">
+      *To be implemented in for final version*
+    </h2>
+  </section>
 
   <!-- Sign up modal -->
   <div id="signupModal" class="modal">
@@ -253,7 +282,13 @@
       </footer>
     </div>
   </div>
-
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Cash U Later</strong> by UMich EECS 493 Group 28. Visit the <a href="https://github.com/jonahhb/EECS-493-Cash-U-Later">GitHub Repo</a>.
+      </p>
+    </div>
+  </footer>
   <script src="firebase-config.js"></script>
 </body>
 

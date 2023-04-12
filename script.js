@@ -1,4 +1,5 @@
 function someFunc() {
+  console.log("Hello World!");
   addData();
   showNotification();
 }
@@ -126,6 +127,7 @@ function openTab(evt, tabName) {
   evt.currentTarget.classList.add("is-active");
 }
 
+//makes the recurring dropdown appear when the checkbox is checked
 function toggleSelect() {
   const repeatCheckbox = document.getElementById('repeatCheckbox');
   const repeatedDiv = document.getElementById('repeated');
@@ -136,6 +138,23 @@ function toggleSelect() {
   } else {
     repeatedDiv.style.display = 'none';
     repeatedDiv.classList.remove('is-arrowless');
+  }
+}
+
+//makes spending type disappear when income is selected
+function toggleSelect2() {
+  const Label = document.getElementById('repeatCheckbox');
+  const dropDown = document.getElementById('repeatCheckbox');
+  const transactionTypeDropDown = document.getElementById('repeated');
+
+  if (transactionTypeDropDown.value == "Income") {
+    Label.style.display = 'none';
+    dropDown.style.display = 'none';
+    dropDown.classList.remove('is-arrowless');
+  } else {
+    Label.style.display = 'block';
+    dropDown.style.display = 'block';
+    dropDown.classList.add('is-arrowless');
   }
 }
 
@@ -155,3 +174,48 @@ function changeExpenseType() {
     newExpense.classList.add('is-arrowless');
   }
 }
+
+//navbar burger
+//navbar code for burger menu for mobile
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("submitBut").onclick = function() {someFunc()};
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+
+  // get all a elements in #navbarBasicExample
+  const $navbarLinks = Array.prototype.slice.call(document.querySelectorAll('#navbarBasicExample a'), 0);
+
+  const $navbarMenu = document.getElementById('navbarBasicExample');
+
+  // add click event to each link
+  $navbarLinks.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // remove is-active class from all navbar-burger elements
+      $navbarBurgers.forEach( el => {
+        el.classList.remove('is-active');
+      });
+
+      // remove is-active class from navbar-menu
+      $navbarMenu.classList.remove('is-active');
+
+    }
+  )});
+
+});
