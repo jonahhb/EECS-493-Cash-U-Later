@@ -54,11 +54,11 @@ function rmFunc() {
 function makeGraphs() {
   // var myPlot = document.getElementById('myDiv'),
 
-  trace1 = {x:date, y:runningNeedsIncome, type:'line'};
-  trace2 = {x:date, y:runningNeedsSpending, type:'line'};
+  trace1 = {x:date, y:runningNeedsIncome, type:'line', name:'Available Income'};
+  trace2 = {x:date, y:runningNeedsSpending, type:'line', name:'Income Spent'};
 
-  trace3 = {x:date, y:runningWantsIncome, type:'line'};
-  trace4 = {x:date, y:runningWantsSpending, type:'line'};
+  trace3 = {x:date, y:runningWantsIncome, type:'line', name:'Available Income'};
+  trace4 = {x:date, y:runningWantsSpending, type:'line', name:'Income Spent'};
 
   var data = [trace1, trace2];
   var data2 = [trace3, trace4];
@@ -68,6 +68,8 @@ function makeGraphs() {
 
   console.log(runningNeedsIncome);
   console.log(runningNeedsSpending);
+  console.log(runningWantsIncome);
+  console.log(runningWantsSpending);
   // Plotly.plot('myDiv', data1);
 
   // myPlot.on('plotly_afterplot', function(){
