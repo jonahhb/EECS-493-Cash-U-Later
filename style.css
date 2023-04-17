@@ -214,5 +214,19 @@ a.navbar-burger {
 .inputBox {
   display: block;
   margin: auto;
+  margin-bottom: 10px;
   width: 93.5%;
 }
+
+.deleteButton1 {
+  width: 20px;
+  height: auto;
+}
+
+.deleteBtn {
+  justify-content: center;
+}
+
+/* section.section {
+  margin-bottom: -90px;
+} */

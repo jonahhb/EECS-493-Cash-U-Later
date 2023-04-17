@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css" type='text/css'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <script src="script.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
 
     <div class="has-navbar-fixed-top">
       <div class="navbar-brand">
-        <a class="navbar-item">
+        <a href="#WELCOME" class="navbar-item">
           <img id="logo" src="images/Logos/Cash-U-Later-Rectangle-Logo.png" width="112" height="28">
         </a>
 
@@ -41,9 +42,6 @@
           </a>
           <a class="navbar-item" href="#GRAPH">
             Spending Graphs
-          </a>
-          <a class="navbar-item" href="#PIGGY">
-            Virtual Piggy Bank
           </a>
           <!-- <div class="navbar-item has-dropdown is-hoverable">
       	<a class="navbar-link">
@@ -89,15 +87,13 @@
   <!-- Welcome section-->
   <div id="WELCOME" class="sectionAnchor"></div>
   <section class="section">
-    <h1 class="title">Welcome, {*User Name Here*}!</h1>
-    <h2 class="subtitle">
-      *their profile image from firebase here*
-    </h2>
+    <h1 class="title">Welcome!</h1>
+	<p>Cash U Later is an interface that seeks to assist users who are either starting to become financially independent or are simply wanting to budget their finances more efficiently. The key vision for Cash U Later is providing a simple way to keep track of personal finances and providing informative graphs for each month.</p>
   </section>
   <!-- Form container-->
   <div id="FORM" class="sectionAnchor"></div>
   <section class="section">
-    <h1 class="title">Transaction</h1>
+    <h1 class="title">Transaction Form</h1>
     <h2 class="subtitle">
       Fill out the fields below to track a spending or income
     </h2>
@@ -118,7 +114,7 @@
             <option>Needs</option>
           </select>
         </div>
-        <label class="label">Transaction Amount</label>
+        <label class="label">Transaction Amount ($)</label>
         <input class="input" type="text" placeholder="0.00" id="amount">
         <label class="label">Is this a recurring Transaction?</label>
         <label class="checkbox" id="checkRepeat">
@@ -148,12 +144,15 @@
   <div id="TABLE" class="sectionAnchor"></div>
   <section class="section">
     <h1 class="title">Transaction Table</h1>
-  <div class="inputBox">
-    <p class="help">
-      Enter either "Spending" or "Income" to filter the table.
-    </p>
-	<input type="text" id="myInput" onkeyup="filterFunc()" placeholder="Filter by Transaction Type..." title="Type in a name">
-  </div>
+	<div class="inputBox">
+		<div class="select">
+		<select id="mySelect" onchange="filterFunc()">
+		  <option value="">Filter by...</option>
+		  <option value="Spending">Spending</option>
+		  <option value="Income">Income</option>
+		</select>
+		</div>
+	</div>
   <table id="myTable">
     <thead>
       <tr>
@@ -163,6 +162,7 @@
         <th>Amount</th>
         <th>Repeated?</th>
         <th>Notes</th>
+		<th>Delete</th>
       </tr>
     </thead>
     <tbody id="rows">
@@ -179,25 +179,27 @@
     <div class="graphs">
       <p><strong>Today's Date: </strong>
         <script>
-          date = new Date().toLocaleDateString();
-          document.write(date);</script>
+          date3 = new Date().toLocaleDateString();
+          document.write(date3);</script>
       </p>
 
       <label class="label">Select Month:</label>
-      <select id="graph-types" name="graph-type">
-        <option>Jan</option>
-        <option>Feb</option>
-        <option>Mar</option>
-        <option>Apr</option>
-        <option>May</option>
-        <option>Jun</option>
-        <option>Jul</option>
-        <option>Aug</option>
-        <option>Sep</option>
-        <option>Oct</option>
-        <option>Nov</option>
-        <option>Dec</option>
-      </select>
+	  <div class="select">
+		<select id="graph-types" name="graph-type">
+			<option>Jan</option>
+			<option>Feb</option>
+			<option>Mar</option>
+			<option>Apr</option>
+			<option>May</option>
+			<option>Jun</option>
+			<option>Jul</option>
+			<option>Aug</option>
+			<option>Sep</option>
+			<option>Oct</option>
+			<option>Nov</option>
+			<option>Dec</option>
+		</select>
+	</div>
       <script>
         const today = new Date();
         const currentMonth = today.getMonth();
@@ -207,60 +209,38 @@
 
       <div class="tabs">
         <ul>
-          <li class="is-active" onclick="openTab(event, 'tab1')"><a>Graph 1</a></li>
-          <li onclick="openTab(event, 'tab2')"><a>Graph 2</a></li>
-          <li onclick="openTab(event, 'tab3')"><a>Graph 3</a></li>
+          <li class="is-active" onclick="openTab(event, 'tab1')"><a>Income vs. Spending (Needs)</a></li>
+          <li onclick="openTab(event, 'tab2')"><a>Income vs. Spending (Wants)</a></li>
         </ul>
       </div>
       
 	<div id="tab1" class="tab-content">
 	  	<div id="graph1">
 	    	<p id="graph-title-1">
-	      	Monthly Expenditure Flow
+	      	Income vs. Spending (Needs)
 	    	</p>
-	    	<iframe src="image1.html"></iframe>
+	    	<!-- <iframe src="image1.html"></iframe> -->
+			<div id="needsGraph"></div>
 	  	</div>
 	</div>
 
 	<div id="tab2" class="tab-content" style="display:none">
 	  	<div id="graph2">
 	    	<p id="graph-title-2">
-	      	Remaining Monthly Budget Breakdown
+				Income vs. Spending (Wants)
 	    	</p>
-	    	<iframe src="image2.html"></iframe>
+			<div id="wantsGraph"></div>
+	    	<!-- <iframe src="image2.html"></iframe> -->
 	  	</div>
 	</div>
-
-	<div id="tab3" class="tab-content" style="display:none">
-	  	<div id="graph3">
-	    	<p id="graph-title-3">
-	      	Percent of Monthly Budget Spent
-	    	</p>
-	    	<iframe src="image3.html"></iframe>
-	  	</div>
-	</div>
-
 
     </div>
-  </section>
-
-  <div id="PIGGY" class="sectionAnchor"></div>
-  <section class="section">
-    <h1 class="title">Virtual Piggy Bank</h1>
-    <h2 class="subtitle">
-      *To be implemented in for final version*
-    </h2>
-    <p>
-      This section will include a running total of extra money that was left unspent that the user will be able to use to save up for a big purchase.
-    </p>
   </section>
 
   <div id="ISSUE" class="sectionAnchor"></div>
   <section class="section">
     <h1 class="title">Report an Issue</h1>
-    <h2 class="subtitle">
-      *To be implemented in for final version*
-    </h2>
+    <p>Please reference us at <a href="mailto:jonahhb@umich.edu">cashulater@cashmoney.com</a>!</p>
   </section>
 
   <!-- Sign up modal -->
